@@ -49,61 +49,49 @@ interface MenuItem {
 }
 
 const PROFILE_ITEMS: MenuItem[] = [
-  { label: "Personal information", value: Tabs.PERSONAL, icon: UserRound },
-  { label: "Education", value: Tabs.EDUCATION, icon: BookOpenCheck },
-  { label: "Experience", value: Tabs.EXPERIENCE, icon: BriefcaseBusiness },
-  { label: "Projects", value: Tabs.PROJECTS, icon: FolderKanban },
-  { label: "Skills", value: Tabs.SKILLS, icon: Sparkles },
+  { label: "个人信息", value: Tabs.PERSONAL, icon: UserRound },
+  { label: "教育经历", value: Tabs.EDUCATION, icon: BookOpenCheck },
+  { label: "工作经历", value: Tabs.EXPERIENCE, icon: BriefcaseBusiness },
+  { label: "项目经历", value: Tabs.PROJECTS, icon: FolderKanban },
+  { label: "技能标签", value: Tabs.SKILLS, icon: Sparkles },
 ];
 
 const QUOTES = [
   {
-    quote: "Simplicity is the ultimate sophistication.",
-    writer: "Leonardo da Vinci",
+    quote: "先把简历写清楚，再去想怎么写得漂亮。",
+    writer: "求职舱",
   },
   {
-    quote: "Make it simple, but significant.",
-    writer: "Don Draper",
+    quote: "机会不会敲门，它只在你去砸门的时候出现。",
+    writer: "凯尔·钱德勒",
   },
   {
-    quote: "Quality is not an act, it is a habit.",
-    writer: "Aristotle",
+    quote: "凡事看似不可能，直到你把它做完。",
+    writer: "纳尔逊·曼德拉",
   },
   {
-    quote: "Details make perfection, and perfection is not a detail.",
-    writer: "Leonardo da Vinci",
+    quote: "细节成就完美，而完美本身并不是细节。",
+    writer: "达·芬奇",
   },
   {
-    quote: "Opportunity does not knock, it presents itself when you beat down the door.",
-    writer: "Kyle Chandler",
+    quote: "成功不是终点，失败也不致命，重要的是继续下去的勇气。",
+    writer: "温斯顿·丘吉尔",
   },
   {
-    quote: "It always seems impossible until it's done.",
-    writer: "Nelson Mandela",
+    quote: "未来取决于你今天做了什么。",
+    writer: "甘地",
   },
   {
-    quote: "Success is not final, failure is not fatal: it is the courage to continue that counts.",
-    writer: "Winston Churchill",
+    quote: "别盯着时钟看，像它一样，一直向前走。",
+    writer: "山姆·莱文森",
   },
   {
-    quote: "I never dreamed about success. I worked for it.",
-    writer: "Estée Lauder",
+    quote: "机会不会自己发生，是你把它创造出来的。",
+    writer: "克里斯·格罗瑟",
   },
   {
-    quote: "The future depends on what you do today.",
-    writer: "Mahatma Gandhi",
-  },
-  {
-    quote: "Don't watch the clock; do what it does. Keep going.",
-    writer: "Sam Levenson",
-  },
-  {
-    quote: "Opportunities don't happen. You create them.",
-    writer: "Chris Grosser",
-  },
-  {
-    quote: "Hard work beats talent when talent doesn't work hard.",
-    writer: "Tim Notke",
+    quote: "当天赋不肯努力时，勤奋会赢过天赋。",
+    writer: "蒂姆·诺特克",
   },
 ];
 
@@ -176,7 +164,7 @@ export default function LeftMenu({ selectedTab, onSelectTab, profile, onLogout }
             <p className="truncate text-sm font-semibold text-sidebar-foreground">
               {firstName} {lastName}
             </p>
-            <p className="truncate text-xs text-sidebar-foreground/55">Curriculum workspace</p>
+            <p className="truncate text-xs text-sidebar-foreground/55">简历工作区</p>
           </div>
           <Button
             variant="ghost"
@@ -193,7 +181,7 @@ export default function LeftMenu({ selectedTab, onSelectTab, profile, onLogout }
       <SidebarContent className="px-1 py-3">
         <SidebarGroup>
           <SidebarGroupLabel className="px-3 text-[11px] font-semibold uppercase text-sidebar-foreground/45">
-            General
+            总览
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu className="gap-1">
@@ -201,12 +189,12 @@ export default function LeftMenu({ selectedTab, onSelectTab, profile, onLogout }
                 <SidebarMenuButton
                   size="lg"
                   isActive={selectedTab === Tabs.DASHBOARD}
-                  tooltip="Dashboard"
+                  tooltip="投递看板"
                   onClick={() => onSelectTab(Tabs.DASHBOARD)}
                   className="h-11 relative z-100 rounded-md px-3 text-sidebar-foreground/70 hover:text-sidebar-foreground data-[active=true]:bg-sidebar-primary data-[active=true]:text-sidebar-primary-foreground group-data-[collapsible=icon]:mx-auto group-data-[collapsible=icon]:size-9 group-data-[collapsible=icon]:p-2.5"
                 >
                   <IconLayoutBoard className="size-4.5 group-data-[collapsible=icon]:mx-auto" />
-                  <span className="group-data-[collapsible=icon]:hidden">Dashboard</span>
+                  <span className="group-data-[collapsible=icon]:hidden">投递看板</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -215,7 +203,7 @@ export default function LeftMenu({ selectedTab, onSelectTab, profile, onLogout }
 
         <SidebarGroup className="mt-2">
           <SidebarGroupLabel className="px-3 text-[11px] font-semibold uppercase text-sidebar-foreground/45">
-            Your profile
+            我的档案
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu className="gap-1">
@@ -235,7 +223,7 @@ export default function LeftMenu({ selectedTab, onSelectTab, profile, onLogout }
 
         <SidebarGroup className="mt-2">
           <SidebarGroupLabel className="px-3 text-[11px] font-semibold uppercase text-sidebar-foreground/45">
-            Your document
+            我的文档
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -243,12 +231,12 @@ export default function LeftMenu({ selectedTab, onSelectTab, profile, onLogout }
                 <SidebarMenuButton
                   size="lg"
                   isActive={selectedTab === Tabs.CVMAKER}
-                  tooltip="Create your CV"
+                  tooltip="定制简历"
                   onClick={() => onSelectTab(Tabs.CVMAKER)}
                   className="h-11 rounded-md px-3 text-sidebar-foreground/70 hover:text-sidebar-foreground data-[active=true]:bg-sidebar-primary data-[active=true]:text-sidebar-primary-foreground group-data-[collapsible=icon]:mx-auto group-data-[collapsible=icon]:size-9 group-data-[collapsible=icon]:p-2.5"
                 >
                   <FileText className="size-4.5 group-data-[collapsible=icon]:mx-auto" />
-                  <span className="group-data-[collapsible=icon]:hidden">Create your CV</span>
+                  <span className="group-data-[collapsible=icon]:hidden">定制简历</span>
                   <WandSparkles className="ml-auto size-3.5 opacity-60 group-data-[collapsible=icon]:hidden" />
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -259,12 +247,12 @@ export default function LeftMenu({ selectedTab, onSelectTab, profile, onLogout }
                 <SidebarMenuButton
                   size="lg"
                   isActive={selectedTab === Tabs.RESUME_LIBRARY}
-                  tooltip="View your resume library"
+                  tooltip="简历库"
                   onClick={() => onSelectTab(Tabs.RESUME_LIBRARY)}
                   className="h-11 rounded-md px-3 text-sidebar-foreground/70 hover:text-sidebar-foreground data-[active=true]:bg-sidebar-primary data-[active=true]:text-sidebar-primary-foreground group-data-[collapsible=icon]:mx-auto group-data-[collapsible=icon]:size-9 group-data-[collapsible=icon]:p-2.5"
                 >
                   <Library className="size-4.5 group-data-[collapsible=icon]:mx-auto" />
-                  <span className="group-data-[collapsible=icon]:hidden">Resume library</span>
+                  <span className="group-data-[collapsible=icon]:hidden">简历库</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -284,23 +272,23 @@ export default function LeftMenu({ selectedTab, onSelectTab, profile, onLogout }
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton
-              tooltip="Settings"
+              tooltip="设置"
               isActive={selectedTab === Tabs.SETTINGS}
               onClick={() => onSelectTab(Tabs.SETTINGS)}
               className="h-9 text-sidebar-foreground/65 group-data-[collapsible=icon]:mx-auto"
             >
               <Settings />
-              <span className="group-data-[collapsible=icon]:hidden">Settings</span>
+              <span className="group-data-[collapsible=icon]:hidden">设置</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton
-              tooltip="Log out"
+              tooltip="切换档案"
               onClick={onLogout}
               className="h-9 text-sidebar-foreground/65 hover:text-destructive group-data-[collapsible=icon]:mx-auto"
             >
               <LogOut />
-              <span className="group-data-[collapsible=icon]:hidden">Log out</span>
+              <span className="group-data-[collapsible=icon]:hidden">切换档案</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

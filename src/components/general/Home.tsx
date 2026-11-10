@@ -64,8 +64,8 @@ const ExistingProfilesCard = ({setNewProfileMode}: {setNewProfileMode: (mode: bo
     return (
         <Card className="w-1/3 mx-auto">
             <CardHeader>
-                <CardTitle>Existing Profiles</CardTitle>
-                <CardDescription>Select a profile to use or edit it.</CardDescription>
+                <CardTitle>已有档案</CardTitle>
+                <CardDescription>选择一份档案继续，或新建一份。</CardDescription>
             </CardHeader>
             <CardContent>
                 {profiles.length > 0 ? (
@@ -76,11 +76,11 @@ const ExistingProfilesCard = ({setNewProfileMode}: {setNewProfileMode: (mode: bo
                             </li>
                         ))}
                     </ul>
-                ) : (<p>No profiles found. Please create a new profile.</p>)}
+                ) : (<p>还没有档案，先新建一份。</p>)}
             </CardContent>
             <CardFooter>
                 <Button variant={"outline"} className="m-2" onClick={() => setNewProfileMode(true)}>
-                    Create new profile
+                    新建档案
                 </Button>
             </CardFooter>
         </Card>
@@ -90,20 +90,20 @@ const ExistingProfilesCard = ({setNewProfileMode}: {setNewProfileMode: (mode: bo
 const NewProfileForm = ({ setNewProfileMode }: { setNewProfileMode: (mode: boolean) => void }) => {
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
-    const [language, setLanguage] = useState(Language.FRENCH);
+    const [language, setLanguage] = useState(Language.ENGLISH);
     const [error, setError] = useState('');
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!firstname || !lastname) {
-            setError('Please fill in both fields');
+            setError('名和姓都要填写');
             return;
         }
         const result = await api.addProfile(firstname, lastname, language);
         if (result.success) {
             setNewProfileMode(false);
         } else {
-            setError(result.error || 'An error occurred');
+            setError(result.error || '创建失败，请重试');
         }
     }
 
@@ -115,33 +115,33 @@ const NewProfileForm = ({ setNewProfileMode }: { setNewProfileMode: (mode: boole
                     className="group inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                     <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
-                    Back
+                    返回
                 </button>
-                <CardTitle>Create a New Profile</CardTitle>
-                <CardDescription>Fill in the details to create a new profile.</CardDescription>
+                <CardTitle>新建档案</CardTitle>
+                <CardDescription>填写姓名并选择简历语言，之后可以随时修改。</CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col gap-2">
                 <InputGroup>
-                    <InputGroupInput placeholder="FirstName" value={firstname} onChange={(e) => setFirstname(e.target.value)} />
+                    <InputGroupInput placeholder="名，如 Xiaoming" value={firstname} onChange={(e) => setFirstname(e.target.value)} />
                     <InputGroupAddon>
                         <PersonStanding className="text-muted-foreground" />
                     </InputGroupAddon>
                 </InputGroup>
                 <InputGroup>
-                    <InputGroupInput placeholder="LastName" value={lastname} onChange={(e) => setLastname(e.target.value)} />
+                    <InputGroupInput placeholder="姓，如 Zhang" value={lastname} onChange={(e) => setLastname(e.target.value)} />
                     <InputGroupAddon>
                         <LucideSmile className="text-muted-foreground" />
                     </InputGroupAddon>
                 </InputGroup>
                 <ButtonGroup>
-                    <Button variant={language === Language.FRENCH ? 'default' : 'outline'} onClick={() => setLanguage(Language.FRENCH)} disabled={language === Language.FRENCH}>
-                        French
-                    </Button>
                     <Button variant={language === Language.ENGLISH ? 'default' : 'outline'} onClick={() => setLanguage(Language.ENGLISH)} disabled={language === Language.ENGLISH}>
-                        English
+                        英语
+                    </Button>
+                    <Button variant={language === Language.FRENCH ? 'default' : 'outline'} onClick={() => setLanguage(Language.FRENCH)} disabled={language === Language.FRENCH}>
+                        法语
                     </Button>
                 </ButtonGroup>
-                <Button className="cursor-pointer" onClick={handleSubmit}>Create Profile</Button>
+                <Button className="cursor-pointer" onClick={handleSubmit}>创建档案</Button>
                 {error && <p className="text-red-500">{error}</p>}
             </CardContent>
         </Card>

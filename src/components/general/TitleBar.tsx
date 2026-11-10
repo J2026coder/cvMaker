@@ -25,10 +25,10 @@ const TitleBar = () => {
     const handleAICheck = async () => {
         const isAIAvailable = await api.checkAIAvailability();
         if (isAIAvailable) {
-            toast.success("AI is available ! Activating AI features...");
+            toast.success("本地 AI 已就绪，正在启用智能功能…");
             setAiAvailable(true);
         } else {
-            toast.error("AI is not available.", { description: "Make sure Ollama is installed and a model is downloaded." });
+            toast.error("未检测到本地 AI。", { description: "请先安装 Ollama 并下载一个模型，或改用其他方式手动填写。" });
             setAiAvailable(false);
         }
     }
@@ -38,7 +38,7 @@ const TitleBar = () => {
         <div className="w-full titlebar flex flex-row items-center justify-between p-1 bg-gray-800 text-white m-0 border-b-2 border-b-primary/20">
             <div className="w-full flex flex-row items-center">
                 {/* logo (later) */}
-                <span className="ml-2 text-lg font-bold">CvMaker</span>
+                <span className="ml-2 text-lg font-bold">求职舱</span>
                 {/* buttons */}
             </div>
             <div className="flex flex-row gap-1">

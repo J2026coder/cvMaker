@@ -47,8 +47,8 @@ export default function MainWindow() {
             default:
                 return (
                     <div className="w-full h-full flex flex-col items-center justify-center">
-                        <h2 className="text-2xl font-bold mb-4">Welcome to CV Maker!</h2>
-                        <p className="text-gray-600">Select a pannel from the left menu to get started.</p>
+                        <h2 className="text-2xl font-bold mb-4">欢迎使用求职舱</h2>
+                        <p className="text-gray-600">从左侧菜单选择一项开始。</p>
                     </div>
                 )
         }
@@ -62,7 +62,7 @@ export default function MainWindow() {
                         <SidebarTrigger className="size-9" aria-label="Open navigation">
                             <Menu className="size-4" />
                         </SidebarTrigger>
-                        <span className="ml-3 text-sm font-semibold">CV Maker</span>
+                        <span className="ml-3 text-sm font-semibold">求职舱</span>
                     </header>
                     <ScrollArea className="h-full w-full flex-1 bg-zinc-200/50">
                         <div className="w-full min-w-0" id="render-tab">

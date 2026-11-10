@@ -7,9 +7,9 @@ export default function DashboardShell() {
     <>
         <header className="sticky top-0 z-30 flex h-16 shrink-0 items-center gap-3 border-b border-border/70 bg-background/70 px-4 backdrop-blur-xl md:px-6">
             <div>
-                <h1 className="text-sm font-semibold">Career Analytics</h1>
+                <h1 className="text-sm font-semibold">求职数据看板</h1>
                 <p className="hidden text-[11px] text-muted-foreground sm:block">
-                    Local pipeline
+                    数据全部保存在本地
                 </p>
             </div>
             <div className="relative ml-auto hidden w-72 lg:block">
@@ -33,9 +33,9 @@ export default function DashboardShell() {
             <section className="space-y-3">
             <div className="flex items-baseline justify-between gap-3">
                 <div>
-                    <h2 className="text-base font-semibold">Application Pipeline</h2>
+                    <h2 className="text-base font-semibold">投递流程</h2>
                     <p className="text-xs text-muted-foreground">
-                        Drag cards between stages · click a card for the full dossier
+                        拖动卡片切换阶段 · 点卡片查看完整记录
                     </p>
                 </div>
             </div>
@@ -43,7 +43,7 @@ export default function DashboardShell() {
             </section>
 
             <section className="space-y-3">
-            <h2 className="text-base font-semibold">My Market</h2>
+            <h2 className="text-base font-semibold">岗位市场需求</h2>
             <MarketPanel />
             </section>
         </main>
