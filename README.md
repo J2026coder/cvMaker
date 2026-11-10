@@ -93,6 +93,40 @@ npx electron-forge make --arch=arm64
 
 React 19 + TypeScript + Vite + Tailwind CSS + shadcn/ui，Electron 41，electron-forge 打包，SQLite（better-sqlite3）本地存储，Zustand 状态管理。语义匹配用 transformers.js 在本地跑，不上传任何数据。
 
-## 许可
+## 许可与致谢
 
-MIT。原始项目版权归 [Thibaut Delahaie 及贡献者](https://github.com/Tibab222/cvMaker) 所有，改造部分同样以 MIT 发布。
+### 本项目
+
+MIT。原始项目的版权归 Thibaut Delahaie 及贡献者所有，本仓库的修改部分同样以 MIT 许可发布，原版权声明与许可全文见 [LICENSE](LICENSE)。
+
+MIT 允许使用、复制、修改、合并、发布、分发与商业使用，前提是保留版权声明与许可文本。本仓库保留 `LICENSE` 原文未作修改，并在 README、应用内「关于」信息中标注了上游出处。
+
+### 上游
+
+- **CV Maker Engine** — https://github.com/Tibab222/cvMaker
+- Copyright (c) 2026 Thibaut Delahaie
+- 许可：MIT
+
+改造范围见上文「相对上游改了什么」：更名与包标识、图标重绘、界面中文化与看板数据本地化、默认语言调整、README 重写、打包脚本补充。
+
+### 图标
+
+`assets/logo.icns`、`logo.png`、`logo.ico` 为本仓库自行绘制（Python + Pillow 脚本生成矢量形状后导出多尺寸位图），不含任何第三方素材或字体轮廓。命名「求职舱」为本项目自用；上游的项目名与作者标识归其权利人所有，本项目不以官方名义发布。
+
+### 第三方依赖
+
+安装包内分发的依赖均按其各自许可证随附：
+
+- MIT：Electron、React、Vite、better-sqlite3、zustand、framer-motion 等
+- Apache-2.0：sharp、@xenova/transformers、@google/genai 等
+
+完整清单与许可证文本见 `package.json` 及各依赖目录下的 `LICENSE` 文件。
+
+### 数据与商标
+
+界面中的公司名称仅作为岗位示例的叙述性使用，不涉及任何企业的商标授权或合作关系；示例数据均为虚构，不对应真实招聘信息。
+
+### 致谢
+
+感谢 Thibaut Delahaie 将 CV Maker Engine 以 MIT 许可开放，本作业得以在一个完整可用的桌面应用上做改造；也感谢 Electron Forge、Vite、shadcn/ui 等开源工具链。
+
