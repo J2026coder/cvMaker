@@ -1,5 +1,6 @@
 {
   "name": "cv-maker",
+  "productName": "求职舱",
   "private": true,
   "version": "0.2.1",
   "type": "module",
@@ -15,7 +16,8 @@
     "package": "npm run rebuild && electron-forge package",
     "clean": "rimraf out",
     "build-all": "npm run clean && npm run build",
-    "make": "npm run clean && npm run build && npx electron-rebuild -f -w better-sqlite3,sharp && electron-forge make"
+    "make": "npm run clean && npm run build && npx electron-rebuild -f -w better-sqlite3,sharp && electron-forge make",
+    "make:cn": "ELECTRON_MIRROR=https://npmmirror.com/mirrors/electron/ npm run make"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",

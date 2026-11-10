@@ -5,7 +5,9 @@ const { version } = require('./package.json');
 
 module.exports = {
   packagerConfig: {
-    appBundleId: 'com.electron.cv-maker',
+    appBundleId: 'com.j2026coder.qiuzhicang',
+    appCopyright: 'Based on CV Maker Engine (MIT) — Tibab222/cvMaker',
+    name: '求职舱',
     icon: path.resolve(__dirname, 'assets/logo'),
     extraResource: [
       path.resolve(__dirname, 'assets')
@@ -48,7 +50,7 @@ module.exports = {
       platforms: ['darwin'],
       config: (arch) => ({
         format: 'ULFO',
-        name: `cv-maker-${arch}-${version}`,
+        name: `qiuzhicang-${arch}-${version}`,
       }),
     },
     {
